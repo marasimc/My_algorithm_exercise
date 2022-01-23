@@ -168,3 +168,53 @@ int main()
 }
 ```
 
+# 删除某一元素
+
+```c++
+#include<vector>
+#include<iostream>
+int main()
+{
+    vector<int> myvector;
+    for(int i=0;i<20;i++)
+        {
+            myvector.push_back(i);
+        }
+    myvector.erase(myvector.begin()+2);//删除第三个元素
+    myvecotr.erase(myvector.begin(),myvector.bengin()+3);//删除前3个元素,[ .. ),第四个元素没有删除
+    for(auto it=myvector.begin();it!=myvecotr.begin()+5;)
+        {
+            myvector.erase(it);
+        }
+    for(auto it=myvector.begin();it!=myvcetor.end();it++)
+        cout<<*it<<endl;
+    //元素显示第二种方式,直接用索引来做
+    //for(unsigned int i=0;i<myvector.size();i++)
+    //cout<<' '<<myvector[i]
+}
+```
+
+# 去重
+
+```c++
+include <iostream>
+#include <algorithm>
+#include <vector>
+
+using namespace std;
+
+int main()
+{
+    int myints[] = {1,2,3,1,1};
+    int len = sizeof(myints)/sizeof(int);
+    vector<int> vec(myints, myints + len);
+    
+    sort(vec.begin(), vec.end());
+    vec.erase(unique(vec.begin(), vec.end()), vec.end());
+    
+    for(int x : vec)
+        cout << x << ",";
+    return 0;
+}
+```
+
